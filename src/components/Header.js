@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Header() {
   return (
-    <div>
-      Header
-    </div>
+    <>
+      <img src="..\public\Logo.svg" alt='little lemon logo'/>
+    </>
   )
 }
