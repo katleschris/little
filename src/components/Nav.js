@@ -1,5 +1,4 @@
-import React from 'react';
-
+import { Link } from 'react-router-dom'
 export default function Nav({ isVisible }) {
   const navStyle = {
     display: isVisible ? 'block' : 'none',
@@ -15,10 +14,10 @@ export default function Nav({ isVisible }) {
 
   return (
     <ul style={navStyle}>
-      <li>Home</li>
-      <li>Specials</li>
-      <li>About</li>
-      <li>Book</li>
+      <Link to ='/'><li>Home</li></Link>
+      <Link t0 ='/'><li>Specials</li></Link>
+      <Link t0 ='/'><li>About</li></Link>
+      <Link t0 ='/reservation'><li>Book</li></Link>
     </ul>
   );
 }
