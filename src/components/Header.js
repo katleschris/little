@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Nav from './Nav';
 import Logo from '../icons_assets/Logo.svg';
 import Basket from '../icons_assets/Basket.svg';
 import HamburgerIcon from '../icons_assets/HamburgerIcon.svg';
 
 export default function Header() {
+  const [isMenuVisible, setMenuVisibility] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuVisibility(!isMenuVisible);
+  };
+
   const headerStyle = {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
@@ -19,10 +25,11 @@ export default function Header() {
 
   return (
     <header style={headerStyle}>
-      <img src={HamburgerIcon} alt='navigation Icon' />
+      <img src={HamburgerIcon} alt='navigation Icon' onClick={toggleMenu} />
       <img src={Logo} alt='Little Lemon Logo' />
       <img src={Basket} alt='cart' style={basketStyle} />
-      <Nav />
+      
+      {isMenuVisible && <Nav />}
     </header>
   );
 }
