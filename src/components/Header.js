@@ -17,6 +17,7 @@ export default function Header() {
     gap: '10px',
     alignItems: 'center',
     padding: '10px',
+    position: 'relative', // Position relative for absolute positioning of the dropdown
   };
 
   const basketStyle = {
@@ -29,7 +30,7 @@ export default function Header() {
       <img src={Logo} alt='Little Lemon Logo' />
       <img src={Basket} alt='cart' style={basketStyle} />
       
-      {isMenuVisible && <Nav />}
+      <Nav isVisible={isMenuVisible} />
     </header>
   );
 }
