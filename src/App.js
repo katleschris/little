@@ -1,18 +1,28 @@
-import React from 'react'
-import './App.css';
-import Nav from './components/Nav';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from './components/Header';
-import Main from './components/Main';
 import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import BookingPage from './pages/BookingPage';
+import ConfirmedBooking from './pages/ConfirmedBooking';
+import './App.css';
+import FormPage from './pages/FormPage';
+import ConfirmationPage from './pages/ConfirmationPage';
 
 function App() {
   return (
-    <>
-    <Nav />
-    <Header />
-    <Main />
-    <Footer />
-    </>
+    <Router>
+      <>
+        <Header />
+        <Routes>
+          <Route path="/" exact element={<HomePage />} />
+          <Route path="/reservation" element={<BookingPage />} />
+          <Route path="/form" element={<FormPage />} />
+          <Route path="/confirmation" element={<ConfirmationPage />} />
+          <Route path="/confirmed" element={<ConfirmedBooking />} />
+        </Routes>
+        <Footer />
+      </>
+    </Router>
   );
 }
 
