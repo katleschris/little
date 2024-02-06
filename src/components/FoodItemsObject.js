@@ -14,7 +14,7 @@
         photo: '../icons_assets/bruchetta.svg'
     },
     {
-        name: 'Greek Salad',
+        name: 'Lemon dessert',
         description: 'The famous lemon dessert made of fresh lemons freshly made evr...',
         price: '$10.99',
         category: 'desserts',
