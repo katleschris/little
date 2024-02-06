@@ -1,5 +1,5 @@
 import React from 'react';
-import RestaurantFood from '../icons_assets/RestaurantFood.jpg'
+import ResturantFood from '../icons_assets/ResturantFood.jpg';
 import { Link } from 'react-router-dom';
 
 
@@ -39,7 +39,7 @@ export default function Banner() {
             <p style={bannerStyle.h3pStyle}>We are a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
         </div>
         <div className='banner-image' style={bannerStyle.imageContainer}>
-            <img src={RestaurantFood} alt='Restaurant food'
+            <img src={ResturantFood} alt='Restaurant food'
                 style={{ width: '80%', height: 'auto' }}
             />
         </div>
