@@ -1,11 +1,12 @@
 import React from 'react';
 import FoodItem from './FoodItem';
+import FoodItems from './FoodItemsObject';
 
-const FoodList = ({ foodItems, selectedCategory }) => {
+const FoodList = ({ selectedCategory }) => {
   // Filter the food items based on the selected category
   const filteredItems = selectedCategory
-    ? foodItems.filter(item => item.category === selectedCategory)
-    : foodItems;
+    ? FoodItems.filter(item => item.category === selectedCategory)
+    : FoodItems;
 
   return (
     <div className="food-list">

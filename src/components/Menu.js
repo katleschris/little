@@ -4,8 +4,10 @@ import { useState } from 'react';
 import FoodList from './FoodList';
 import FoodItems from './FoodItemsObject';
 
-const Menu = ({ categories }) => {
+const Menu = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const categories = ['Lunch', 'Mains', 'Desserts', 'A La Carte']
+
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
