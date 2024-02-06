@@ -27,6 +27,7 @@ export default function Banner() {
     btnStyle : {
         backgroundColor: '#F4CE14',
         borderRadius: '25%',
+        border: 'none',
         padding: '5%',
     }
   }

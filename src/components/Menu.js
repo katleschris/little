@@ -22,13 +22,20 @@ const Menu = ({ categories }) => {
     marginBottom: '10px', // Add margin between category buttons
   };
 
+  const categoryStyle = {
+    display: 'flex',
+    overflowX: 'auto'
+  }
+
   return (
     <div className="menu" style={menuStyle}>
-      {categories.map((category, index) => (
+        <div className='category' style={categoryStyle}>
+        {categories.map((category, index) => (
         <div key={index} style={categoryButtonStyle}>
           <Category categoryName={category} />
         </div>
       ))}
+        </div>
       <FoodList foodItems={FoodItems} selectedCategory={selectedCategory} />
     </div>
   );

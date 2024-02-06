@@ -7,6 +7,7 @@ const Category = ({ categoryName }) => {
         overflowX: 'auto',
         marginRight: '10px',
         borderRadius: '30%',
+        border: 'none'
     }
 
   return (
