@@ -1,3 +1,18 @@
 .App {
   text-align: center;
 }
+
+h1 {
+  color: #F4CE14;
+  }
+
+h3 {
+  color: white;
+  }
+
+button{
+      background-color: #F4CE14;
+      border-radius: 25%;
+      border: none;
+      padding: 10px;
+  }

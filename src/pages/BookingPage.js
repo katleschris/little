@@ -1,11 +1,12 @@
 import React from 'react'
-import Calendar from '../components/Calendar'
+import Reservation from '../components/Calendar'
 import Table from '../components/Table'
 
 export default function BookingPage() {
   return (
     <>
-    <Calendar />
+    <h1>Reservations</h1>
+    <Reservation />
     <Table />
     <button>Continue</button>
     </>
