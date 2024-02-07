@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './Reservation.css'
 
 const Reservation = () => {
   // State variables to store form data
@@ -53,7 +53,7 @@ const Reservation = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={{backgroundColor: '#495E57'}}>
       <div>
         <label>Select Date:</label>
         <input type="date" value={selectedDate} onChange={(e) => handleDateChange(e.target.value)} />
@@ -61,7 +61,7 @@ const Reservation = () => {
       <div>
         <label htmlFor="numDiners">Number of Diners:</label>
         <select id="numDiners" value={numDiners} onChange={handleNumDinersChange}>
-          <option value="">Select Number of Diners</option>
+          <option value="">No.of Diners</option>
           {[...Array(10).keys()].map((number) => (
           <option key={number} value={number + 1}>{number + 1}</option>
         ))}
@@ -70,7 +70,7 @@ const Reservation = () => {
         <div>
           <label htmlFor='occassion'>Occasion:</label>
           <select id='occassion'>
-            <option value=''>Select occasion</option>
+            <option value=''>Set Occasion</option>
             <option value=''>Birthday</option>
             <option value=''>Engagement</option>
             <option value=''>Anniversary</option>
