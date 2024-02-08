@@ -4,11 +4,9 @@ import Table from '../components/Table'
 
 export default function BookingPage() {
   return (
-    <>
-    <h1>Reservations</h1>
+    <main >
     <Reservation />
     <Table />
-    <button>Continue</button>
-    </>
+    </main>
   )
 }

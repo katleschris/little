@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Reservation.css'
+import './Reservation.css'; // Import CSS file for styling
 
 const Reservation = () => {
   // State variables to store form data
@@ -26,8 +26,6 @@ const Reservation = () => {
     ));
   };
   
-
-
   // Handler functions to update state variables
   const handleDateChange = (e) => {
     setDate(e.target.value);
@@ -52,41 +50,59 @@ const Reservation = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} style={{backgroundColor: '#495E57'}}>
-      <div>
-        <label>Select Date:</label>
-        <input type="date" value={selectedDate} onChange={(e) => handleDateChange(e.target.value)} />
-      </div>
-      <div>
-        <label htmlFor="numDiners">Number of Diners:</label>
-        <select id="numDiners" value={numDiners} onChange={handleNumDinersChange}>
-          <option value="">No.of Diners</option>
-          {[...Array(10).keys()].map((number) => (
-          <option key={number} value={number + 1}>{number + 1}</option>
-        ))}
-        </select>
-</div>
-        <div>
-          <label htmlFor='occassion'>Occasion:</label>
-          <select id='occassion'>
-            <option value=''>Set Occasion</option>
-            <option value=''>Birthday</option>
-            <option value=''>Engagement</option>
-            <option value=''>Anniversary</option>
-          </select>
+    <div className="reservation-container" style={{ backgroundColor: '#495E57' }}>
+      <form onSubmit={handleSubmit} >
+        <h1>Reserve a table</h1>
+        <div className="grid-container">
+         <div>
+            <label htmlFor="fullName">Full Name</label>
+            <input type="text" name="fullName" id="fullName" placeholder="Elizabeth Bennet" required={true} />
+          </div>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="littlelemon@gmail.com" required={true}/>
+          </div>
+          <div>
+            <label>Select Date</label>
+            <input type="date" value={selectedDate} onChange={(e) => handleDateChange(e.target.value)} required={true} />
+          </div>
+          <div>
+            <label htmlFor="numDiners">Number of Diners</label>
+            <select id="numDiners" value={numDiners} onChange={handleNumDinersChange} required={true}>
+              <option value="">No.of Diners</option>
+              {[...Array(10).keys()].map((number) => (
+                <option key={number} value={number + 1}>{number + 1}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label htmlFor='occasion'>Occasion</label>
+            <select id='occassion' value={occasion} onChange={handleOccasionChange}>
+              <option value=''>Set Occasion</option>
+              <option value='Birthday'>Birthday</option>
+              <option value='Engagement'>Engagement</option>
+              <option value='Anniversary'>Anniversary</option>
+              <option value='Other'>Other</option>
+            </select>
+          </div>
+          <div>
+            <label htmlFor="time">Time</label>
+            <select id="time" value={time} onChange={handleTimeChange} required={true}>
+              <option value="">Select Time</option>
+              {generateTimeOptions()}
+            </select>
+          </div>
+          <div>
+            <label htmlFor='specialNote'>Special Note</label>
+            <textarea type='text' id="specialNote" placeholder='Write any additional information we need to know'/>
+          </div>
         </div>
-        <div>
-          <label htmlFor="time">Time:</label>
-          <select id="time" value={time} onChange={handleTimeChange}>
-            <option value="">Select Time</option>
-            {generateTimeOptions()}
-          </select>
-        </div>
-        <button type="submit">Submit</button>
+        <button type="submit">Continue</button>
       </form>
+      
     </div>
   );
 };
 
 export default Reservation;
+
