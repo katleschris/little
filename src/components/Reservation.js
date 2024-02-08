@@ -97,7 +97,7 @@ const Reservation = () => {
             <textarea type='text' id="specialNote" placeholder='Write any additional information we need to know'/>
           </div>
         </div>
-        <button type="submit">Continue</button>
+        <button type="submit">Confirm reservation</button>
       </form>
       
     </div>
