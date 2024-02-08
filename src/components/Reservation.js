@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import './Reservation.css'; // Import CSS file for styling
 
 const Reservation = () => {
-  // State variables to store form data
+  // State variables to store form data and confirmation message
   const [date, setDate] = useState('');
   const [numDiners, setNumDiners] = useState('');
   const [occasion, setOccasion] = useState('');
   const [time, setTime] = useState('');
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState('');
+  const [confirmationMessage, setConfirmationMessage] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
   const generateTimeOptions = () => {
     const times = [
@@ -27,8 +29,9 @@ const Reservation = () => {
   };
   
   // Handler functions to update state variables
-  const handleDateChange = (e) => {
-    setDate(e.target.value);
+  const handleDateChange = (value) => {
+    setDate(value);
+    setSelectedDate(value);
   };
 
   const handleNumDinersChange = (e) => {
@@ -43,63 +46,79 @@ const Reservation = () => {
     setTime(e.target.value);
   };
 
+  const handleSpecialNoteChange = (e) => {
+    // Handle changes for special note
+  };
+
   // Submit handler function
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ date, numDiners, occasion, time });
+    const fullName = document.getElementById('fullName').value;
+    const email = document.getElementById('email').value;
+    const specialNote = document.getElementById('specialNote').value;
+
+    // Construct confirmation message
+    const confirmationMsg = `Reservation Confirmed\nDear ${fullName}:\nYour table for party of ${numDiners} is reserved for ${date} at ${time}.\nWe will see you soon for the ${occasion} event!\nAdditional Note: ${specialNote}`;
+
+    // Update state with confirmation message
+    setConfirmationMessage(confirmationMsg);
+    setSubmitted(true); // Set submitted to true to hide the form
   };
 
   return (
     <div className="reservation-container" style={{ backgroundColor: '#495E57' }}>
-      <form onSubmit={handleSubmit} >
-        <h1>Reserve a table</h1>
-        <div className="grid-container">
-         <div>
-            <label htmlFor="fullName">Full Name</label>
-            <input type="text" name="fullName" id="fullName" placeholder="Elizabeth Bennet" required={true} />
+      {!submitted ? (
+        <form onSubmit={handleSubmit} >
+          <h1>Reserve a table</h1>
+          <div className="grid-container">
+            <div>
+              <label htmlFor="fullName">Full Name</label>
+              <input type="text" name="fullName" id="fullName" placeholder="Elizabeth Bennet" required={true} />
+            </div>
+            <div>
+              <label htmlFor="email">Email</label>
+              <input type="email" name="email" id="email" placeholder="littlelemon@gmail.com" required={true}/>
+            </div>
+            <div>
+              <label>Select Date</label>
+              <input type="date" value={selectedDate} onChange={(e) => handleDateChange(e.target.value)} required={true} />
+            </div>
+            <div>
+              <label htmlFor="numDiners">Number of Diners</label>
+              <select id="numDiners" value={numDiners} onChange={handleNumDinersChange} required={true}>
+                <option value="">No.of Diners</option>
+                {[...Array(10).keys()].map((number) => (
+                  <option key={number} value={number + 1}>{number + 1}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label htmlFor='occasion'>Occasion</label>
+              <select id='occasion' value={occasion} onChange={handleOccasionChange}>
+                <option value=''>Set Occasion</option>
+                <option value='Birthday'>Birthday</option>
+                <option value='Engagement'>Engagement</option>
+                <option value='Anniversary'>Anniversary</option>
+                <option value='Other'>Other</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="time">Time</label>
+              <select id="time" value={time} onChange={handleTimeChange} required={true}>
+                <option value="">Select Time</option>
+                {generateTimeOptions()}
+              </select>
+            </div>
+            <div>
+              <label htmlFor='specialNote'>Special Note</label>
+              <textarea type='text' id="specialNote" onChange={handleSpecialNoteChange} placeholder='Write any additional information we need to know'/>
+            </div>
           </div>
-          <div>
-            <label htmlFor="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="littlelemon@gmail.com" required={true}/>
-          </div>
-          <div>
-            <label>Select Date</label>
-            <input type="date" value={selectedDate} onChange={(e) => handleDateChange(e.target.value)} required={true} />
-          </div>
-          <div>
-            <label htmlFor="numDiners">Number of Diners</label>
-            <select id="numDiners" value={numDiners} onChange={handleNumDinersChange} required={true}>
-              <option value="">No.of Diners</option>
-              {[...Array(10).keys()].map((number) => (
-                <option key={number} value={number + 1}>{number + 1}</option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label htmlFor='occasion'>Occasion</label>
-            <select id='occassion' value={occasion} onChange={handleOccasionChange}>
-              <option value=''>Set Occasion</option>
-              <option value='Birthday'>Birthday</option>
-              <option value='Engagement'>Engagement</option>
-              <option value='Anniversary'>Anniversary</option>
-              <option value='Other'>Other</option>
-            </select>
-          </div>
-          <div>
-            <label htmlFor="time">Time</label>
-            <select id="time" value={time} onChange={handleTimeChange} required={true}>
-              <option value="">Select Time</option>
-              {generateTimeOptions()}
-            </select>
-          </div>
-          <div>
-            <label htmlFor='specialNote'>Special Note</label>
-            <textarea type='text' id="specialNote" placeholder='Write any additional information we need to know'/>
-          </div>
-        </div>
-        <button type="submit">Confirm reservation</button>
-      </form>
-      
+          <button type="submit" style={{ maxWidth: "440px" }}>Confirm reservation</button>
+        </form>
+      ) : (
+        <div className="confirmation">{confirmationMessage}</div>
+      )}
     </div>
   );
 };
