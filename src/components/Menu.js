@@ -6,7 +6,7 @@ import FoodItems from './FoodItemsObject';
 
 const Menu = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const categories = ['Specials', 'Lunch', 'Mains', 'Desserts', 'A La Carte']
+  const categories = ['Specials', 'Lunch', 'Mains', 'Desserts']
 
 
   const handleCategoryChange = (category) => {

@@ -4,7 +4,9 @@
     gap: 20px; /* Gap between grid items */
     
   }
-
+  .block {
+    color: black;
+  }
   .footer-container {
     background-color: rgb(83, 83, 83) !important;
     

@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom'
-export default function Nav({ isVisible }) {
+import { Link } from 'react-router-dom';
+
+export default function Nav({ isVisible, hideMenu }) {
   const navStyle = {
     display: isVisible ? 'block' : 'none',
     position: 'absolute',
@@ -12,12 +13,16 @@ export default function Nav({ isVisible }) {
     margin: 0,
   };
 
+  const handleLinkClick = () => {
+    hideMenu(); // Call the hideMenu function passed from the parent component
+  };
+
   return (
     <ul style={navStyle}>
-      <Link to ='/'><li>Home</li></Link>
-      <Link to ='/about'><li>About</li></Link>
-      <Link to ='/'><li>Menu</li></Link>
-      <Link to ='/reservation'><li>Reservation</li></Link>
+      <Link to ='/' onClick={handleLinkClick}><li>Home</li></Link>
+      <Link to ='/about' onClick={handleLinkClick}><li>About</li></Link>
+      <Link to ='/' onClick={handleLinkClick}><li>Menu</li></Link>
+      <Link to ='/reservation' onClick={handleLinkClick}><li>Reservation</li></Link>
     </ul>
   );
 }

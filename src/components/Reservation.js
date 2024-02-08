@@ -58,7 +58,7 @@ const Reservation = () => {
     const specialNote = document.getElementById('specialNote').value;
 
     // Construct confirmation message
-    const confirmationMsg = `Reservation Confirmed\nDear ${fullName}:\nYour table for party of ${numDiners} is reserved for ${date} at ${time}.\nWe will see you soon for the ${occasion} event!\nAdditional Note: ${specialNote}`;
+    const confirmationMsg = `Reservation Confirmed\nDear ${fullName}:\nYour table for party of ${numDiners} is reserved for ${date} at ${time}.\nWe will see you soon for the ${occasion} event!\nWe took note that you ${specialNote}`;
 
     // Update state with confirmation message
     setConfirmationMessage(confirmationMsg);

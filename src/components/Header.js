@@ -10,7 +10,9 @@ export default function Header() {
   const toggleMenu = () => {
     setMenuVisibility(!isMenuVisible);
   };
-
+  const hideMenu = () => {
+    setMenuVisibility(false); // Function to hide the menu
+  };
   const headerStyle = {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
@@ -30,7 +32,7 @@ export default function Header() {
       <img src={Logo} alt='Little Lemon Logo' />
       <img src={Basket} alt='cart' style={basketStyle} />
       
-      <Nav isVisible={isMenuVisible} />
+      <Nav isVisible={isMenuVisible} hideMenu={hideMenu}/>
     </header>
   );
 }
