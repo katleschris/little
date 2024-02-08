@@ -7,7 +7,7 @@ export default function HomePage() {
   return (
     <main>
       <Banner />
-      <h3>ORDER FOR DELIVERY!</h3>
+      <h2>ORDER FOR DELIVERY!</h2>
       <Menu />
     </main>
 

@@ -18,7 +18,6 @@ export default function Nav({ isVisible }) {
       <Link to ='/about'><li>About</li></Link>
       <Link to ='/'><li>Menu</li></Link>
       <Link to ='/reservation'><li>Reservation</li></Link>
-      <Link to = '/'><li>Order Online</li></Link>
     </ul>
   );
 }

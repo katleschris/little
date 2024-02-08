@@ -1,0 +1,29 @@
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+    gap: 20px; /* Gap between grid items */
+    
+  }
+
+  .footer-container {
+    background-color: rgb(83, 83, 83) !important;
+    
+  }
+  
+  .logo-container {
+    grid-column: 1; 
+    padding: 10px;
+  }
+  
+  .site-map {
+    grid-column: 2;
+  }
+  
+  .contact {
+    grid-column: 3;
+  }
+  
+  .col-full.foot-center {
+    text-align: center;
+  }
+  
